@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080813">
+<title>PARADOX ENGINE X</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="space"></canvas>
+<div class="scanlines"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-symbol">P<span>X</span></div>
+      <div><b>PARADOX</b><small>ENGINE X</small></div>
+    </div>
+
+    <div class="creator-card">
+      <div class="avatar">P</div>
+      <div><b>THE CREATOR</b><small id="creatorName">PREM</small></div>
+      <span class="online"></span>
+    </div>
+
+    <div class="nav-label">MAIN SYSTEM</div>
+    <button class="nav active" data-view="dashboard">◈ Dashboard</button>
+    <button class="nav" data-view="multiverse">◎ Multiverse</button>
+    <button class="nav" data-view="planets">✦ Planet Generator</button>
+    <button class="nav" data-view="timeline">⌁ Timeline</button>
+    <button class="nav" data-view="missions">⚑ Missions</button>
+
+    <div class="nav-label">ADVANCED SYSTEMS</div>
+    <button class="nav" data-view="oracle">◉ AI Oracle</button>
+    <button class="nav" data-view="market">◇ Quantum Market</button>
+    <button class="nav" data-view="vault">▣ Data Vault</button>
+    <button class="nav" data-view="terminal">⌘ Terminal</button>
+
+    <div class="sidebar-bottom">
+      <div class="connection"><span class="online"></span> ALL SYSTEMS ONLINE</div>
+      <small>PARADOX OS // VERSION X</small>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">MULTIVERSE OPERATING SYSTEM</div>
+        <h2 id="pageTitle">COMMAND CENTER</h2>
+      </div>
+      <div class="top-actions">
+        <div class="clock" id="clock">00:00:00</div>
+        <button class="icon-btn" id="soundBtn" title="Sound">♫</button>
+        <button class="icon-btn" id="themeBtn" title="Matrix mode">◐</button>
+        <button class="icon-btn" id="saveBtn" title="Save">▣</button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section class="view active" id="dashboard">
+      <div class="welcome">
+        <div>
+          <div class="eyebrow">WELCOME BACK, CREATOR</div>
+          <h1>Reality is <span>yours.</span></h1>
+          <p>Your multiverse is waiting for its next command.</p>
+        </div>
+        <div class="universe-badge">
+          <span class="pulse"></span>
+          UNIVERSE <b id="universeId">PX-000001</b>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><small>REALITY STABILITY</small><b id="stability">87%</b><div class="meter"><i id="stabilityBar"></i></div><span>Structural integrity</span></div>
+        <div class="stat"><small>CHAOS INDEX</small><b id="chaos">13%</b><div class="meter"><i id="chaosBar"></i></div><span>Universal instability</span></div>
+        <div class="stat"><small>QUANTUM ENERGY</small><b id="energy">750</b><div class="meter"><i id="energyBar"></i></div><span>Energy units</span></div>
+        <div class="stat"><small>DIMENSIONS</small><b id="dimensions">03</b><div class="meter"><i id="dimensionBar"></i></div><span>Discovered realities</span></div>
+      </div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <div class="panel-head"><div><small>01 / COSMIC VISUALIZER</small><h3>UNIVERSE CORE</h3></div><span class="tag green">● ACTIVE</span></div>
+          <div class="universe">
+            <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+            <div class="core-glow"></div><div class="core">PX</div>
+            <div class="universe-caption">QUANTUM CORE // <span id="coreState">STABLE</span></div>
+          </div>
+          <div class="split-info"><span>SIMULATION TIME</span><b id="simTime">00:00:00</b></div>
+          <div class="split-info"><span>COSMIC WEATHER</span><b id="weather">CLEAR SPACE</b></div>
+          <div class="split-info"><span>ACTIVE DIMENSION</span><b id="activeDimension">EARTH-PRIME</b></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div><small>02 / REALITY MANIPULATION</small><h3>CONTROL DECK</h3></div></div>
+          <div class="slider-control"><label>GRAVITY <b id="gravityVal">50</b></label><input id="gravity" type="range" min="0" max="100" value="50"></div>
+          <div class="slider-control"><label>TIME FLOW <b id="timeVal">50</b></label><input id="timeFlow" type="range" min="0" max="100" value="50"></div>
+          <div class="slider-control"><label>QUANTUM FLUX <b id="fluxVal">50</b></label><input id="flux" type="range" min="0" max="100" value="50"></div>
+          <div class="slider-control"><label>ENTROPY <b id="entropyVal">20</b></label><input id="entropy" type="range" min="0" max="100" value="20"></div>
+          <button class="primary" id="applyReality">APPLY CHANGES ↗</button>
+          <button class="secondary" id="healBtn">⚡ EMERGENCY STABILIZATION</button>
+        </div>
+      </div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <div class="panel-head"><div><small>03 / LIVE FEED</small><h3>UNIVERSE EVENTS</h3></div><button class="text-btn" data-goto="timeline">VIEW ALL ↗</button></div>
+          <div id="recentEvents" class="event-feed"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><small>04 / QUICK ACTIONS</small><h3>INSTANT PROTOCOLS</h3></div></div>
+          <div class="quick-grid">
+            <button data-action="supernova">✦<span>SUPERNOVA</span></button>
+            <button data-action="wormhole">◎<span>WORMHOLE</span></button>
+            <button data-action="blackhole">◉<span>BLACK HOLE</span></button>
+            <button data-action="quantum">◇<span>QUANTUM SHIFT</span></button>
+            <button data-action="meteor">☄<span>METEOR SHOWER</span></button>
+            <button data-action="eclipse">☾<span>TIME ECLIPSE</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTIVERSE -->
+    <section class="view" id="multiverse">
+      <div class="section-intro"><small>05 / REALITY EXPLORATION</small><h1>Multiverse <span>Explorer</span></h1><p>Discover alternate realities and travel between dimensions.</p></div>
+      <div class="universe-grid" id="universeGrid"></div>
+      <div class="panel">
+        <h3>DIMENSION TELEPORTER</h3>
+        <p class="muted">Travel to a discovered universe. Each destination has its own identity.</p>
+        <div class="split-info"><span>CURRENT DESTINATION</span><b id="destination">EARTH-PRIME</b></div>
+        <button class="primary" id="randomPortal">GENERATE RANDOM PORTAL</button>
+      </div>
+    </section>
+
+    <!-- PLANETS -->
+    <section class="view" id="planets">
+      <div class="section-intro"><small>06 / COSMIC CREATION</small><h1>Planet <span>Laboratory</span></h1><p>Create imaginary worlds with randomized characteristics.</p></div>
+      <div class="grid-two">
+        <div class="panel">
+          <div class="planet-display"><div class="planet" id="planetVisual"></div></div>
+          <div class="planet-name" id="planetName">UNKNOWN-01</div>
+          <div class="planet-desc" id="planetDesc">Waiting for creation...</div>
+          <button class="primary" id="generatePlanet">✦ GENERATE NEW PLANET</button>
+        </div>
+        <div class="panel">
+          <h3>PLANET INTELLIGENCE</h3>
+          <div id="planetStats"></div>
+          <button class="secondary" id="savePlanet">SAVE TO DISCOVERY LOG</button>
+          <div class="subheading">DISCOVERED PLANETS</div>
+          <div id="planetHistory" class="event-feed"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="view" id="timeline">
+      <div class="section-intro"><small>07 / HISTORY ENGINE</small><h1>Timeline <span>Branches</span></h1><p>Every action creates a new chapter in your universe.</p></div>
+      <div class="panel">
+        <div class="panel-head"><h3>REALITY HISTORY</h3><button class="secondary small-btn" id="clearHistory">CLEAR HISTORY</button></div>
+        <div id="fullTimeline" class="timeline"></div>
+      </div>
+      <div class="panel">
+        <h3>CREATE ALTERNATE TIMELINE</h3>
+        <p class="muted">Create a fictional alternate history from your current universe.</p>
+        <input class="field" id="timelineName" placeholder="Enter timeline name...">
+        <button class="primary" id="createTimeline">GENERATE TIMELINE</button>
+        <div id="branches" class="branch-list"></div>
+      </div>
+    </section>
+
+    <!-- MISSIONS -->
+    <section class="view" id="missions">
+      <div class="section-intro"><small>08 / CREATOR OBJECTIVES</small><h1>Mission <span>Control</span></h1><p>Complete challenges and earn quantum energy.</p></div>
+      <div class="stats"><div class="stat"><small>MISSIONS COMPLETED</small><b id="missionCount">0</b></div><div class="stat"><small>TOTAL REWARDS</small><b id="rewards">0</b></div></div>
+      <div id="missionList" class="mission-list"></div>
+      <button class="secondary" id="newMissions">GENERATE NEW CHALLENGES</button>
+    </section>
+
+    <!-- ORACLE -->
+    <section class="view" id="oracle">
+      <div class="section-intro"><small>09 / INTELLIGENCE SYSTEM</small><h1>AI <span>Oracle</span></h1><p>A fictional interactive universe intelligence. No external AI service required.</p></div>
+      <div class="panel oracle-panel">
+        <div class="oracle-avatar">◉</div>
+        <h3>ORACLE-09</h3><span class="tag green">INTELLIGENCE ONLINE</span>
+        <div id="oracleChat" class="chat">
+          <div class="bubble oracle">Greetings, Creator. I am ORACLE-09. Ask me about your universe, request a prediction or type HELP.</div>
+        </div>
+        <form id="oracleForm" class="chat-form"><input id="oracleInput" class="field" placeholder="Ask the Oracle..." autocomplete="off"><button class="primary">SEND ↗</button></form>
+        <div class="suggestions"><button data-question="Predict my future">PREDICT</button><button data-question="Analyze my universe">ANALYZE</button><button data-question="Tell me a cosmic mystery">MYSTERY</button></div>
+      </div>
+    </section>
+
+    <!-- MARKET -->
+    <section class="view" id="market">
+      <div class="section-intro"><small>10 / RESOURCE EXCHANGE</small><h1>Quantum <span>Market</span></h1><p>Trade fictional cosmic resources using your energy credits.</p></div>
+      <div class="stats"><div class="stat"><small>YOUR BALANCE</small><b id="marketBalance">750</b></div><div class="stat"><small>TRADES COMPLETED</small><b id="tradeCount">0</b></div></div>
+      <div id="marketGrid" class="market-grid"></div>
+      <div class="panel"><h3>TRADE HISTORY</h3><div id="tradeHistory" class="event-feed"></div></div>
+    </section>
+
+    <!-- VAULT -->
+    <section class="view" id="vault">
+      <div class="section-intro"><small>11 / PERSONAL STORAGE</small><h1>Data <span>Vault</span></h1><p>Store your notes and discoveries in your local browser.</p></div>
+      <div class="panel">
+        <h3>CREATE A SECURE NOTE</h3>
+        <input id="noteTitle" class="field" placeholder="Note title...">
+        <textarea id="noteBody" class="field" rows="5" placeholder="Write your discovery..."></textarea>
+        <button class="primary" id="saveNote">SAVE NOTE</button>
+        <div class="subheading">YOUR ARCHIVE</div>
+        <div id="notes" class="notes"></div>
+      </div>
+    </section>
+
+    <!-- TERMINAL -->
+    <section class="view" id="terminal">
+      <div class="section-intro"><small>12 / DIRECT COMMAND ACCESS</small><h1>System <span>Terminal</span></h1><p>Control your universe through commands.</p></div>
+      <div class="panel">
+        <div class="terminal-output" id="terminalOutput">
+          <div>PARADOX ENGINE X [VERSION 10.0]</div>
+          <div class="success">SYSTEM INITIALIZED. WELCOME, CREATOR.</div>
+          <div class="muted">Type HELP to see all commands.</div>
+        </div>
+        <form id="terminalForm" class="terminal-form"><span>&gt;</span><input id="terminalInput" autocomplete="off" placeholder="Enter command..."><button class="primary">RUN</button></form>
+        <div class="subheading">QUICK COMMANDS</div>
+        <div class="command-chips">
+          <button data-command="HELP">HELP</button><button data-command="STATUS">STATUS</button><button data-command="SCAN">SCAN</button><button data-command="HEAL">HEAL</button><button data-command="WHOAMI">WHOAMI</button><button data-command="MATRIX">MATRIX</button>
+        </div>
+      </div>
+    </section>
+
+    <footer><span>PARADOX ENGINE X // 2026</span><span>REALITY IS YOURS.</span><span id="footerStatus">ALL SYSTEMS NOMINAL</span></footer>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<div id="modal" class="modal"><div class="modal-box"><button id="closeModal" class="close">×</button><div id="modalContent"></div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
